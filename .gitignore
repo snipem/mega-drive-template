@@ -52,3 +52,5 @@ Mkfile.old
 dkms.conf
 
 out
+opt
+src/boot/sega.s
