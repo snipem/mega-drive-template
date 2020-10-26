@@ -26,5 +26,8 @@ jobs:
     - name: Upload the Rom
       uses: actions/upload-artifact@v2.2.0
       with:
-        name: Rom Name
+        name: rom.bin
         path: out/rom.bin
+        if-no-files-found: error
+
+
