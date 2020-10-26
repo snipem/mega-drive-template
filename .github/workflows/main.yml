@@ -1,0 +1,27 @@
+name: Build
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        platform: [ubuntu-latest]
+    runs-on: ${{ matrix.platform }}
+    steps:
+
+
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        submodules: 'true'
+
+    - name: Dependencies
+      run: make gendev
+
+    - name: Build
+      run: make build
