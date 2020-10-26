@@ -1,5 +1,5 @@
 build:
-	make -f opt/gendev/sgdk/mkfiles/makefile.gen clean all
+	GENDEV=opt/gendev make -f opt/gendev/sgdk/mkfiles/makefile.gen clean all
 
 gendev: opt
 
