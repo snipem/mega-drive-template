@@ -4,4 +4,4 @@ build:
 gendev: opt
 
 opt:
-	wget -qO- https://github.com/kubilus1/gendev/releases/download/0.4.1/gendev_0.4.1.txz | bsdtar -xvf- -C .
+	wget -qO- https://github.com/kubilus1/gendev/releases/download/0.4.1/gendev_0.4.1.txz | tar -xvf- -J -C .
