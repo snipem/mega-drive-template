@@ -22,3 +22,9 @@ jobs:
 
     - name: Build
       run: make build
+
+    - name: Upload the Rom
+      uses: actions/upload-artifact@v2.2.0
+      with:
+        name: Rom Name
+        path: out/rom.bin
