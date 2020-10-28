@@ -4,7 +4,6 @@ on:
   pull_request:
   push:
     branches:
-      - sgdk
       - main
 
 jobs:
@@ -18,24 +17,24 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Download Assets
+    - name: Download SGDK
       uses: i3h/download-release-asset@v1.2.0
       with:
         owner: Stephane-D
         repo: SGDK
-        tag: v1.51
-        file: sgdk151.7z
+        tag: v1.51 # Upgrade this on new version
+        file: sgdk151.7z # Upgrade this on new version
 
-    - name: extract-7z-action
+    - name: Extract SGDK
       uses: DuckSoft/extract-7z-action@v1.0
       with:
-        pathSource: sgdk151.7z
+        pathSource: sgdk151.7z # Upgrade this on new version
         pathTarget: sgdk
         
-    - name: Run SGDK
-      run: sgdk\bin\make -f sgdk\makefile.gen
+    - name: Run SGDK Build
+      run: sgdk\bin\make -f sgdk\makefile.gen # Maybe use GDK_WIN here as well
       env:
-        GDK_WIN: sgdk
+        GDK_WIN: sgdk # This is set if needed in the Makefile
 
     - name: Upload the Rom
       uses: actions/upload-artifact@v2.2.0
