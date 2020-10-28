@@ -1,0 +1,33 @@
+name: Build
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        platform: [ubuntu-latest]
+    runs-on: ${{ matrix.platform }}
+    steps:
+
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Download and Extract Gendev
+      run: make gendev
+
+    - name: Run Gendev make
+      run: make build
+
+    - name: Upload the Rom
+      uses: actions/upload-artifact@v2.2.0
+      with:
+        name: rom.bin
+        path: out/rom.bin
+        if-no-files-found: error
+
+
