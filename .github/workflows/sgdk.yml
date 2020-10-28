@@ -33,7 +33,7 @@ jobs:
         pathTarget: sgdk
         
     - name: Run SGDK
-      run: $GDK_WIN/bin/make -f $GDK_WIN/makefile.gen
+      run: sgdk\bin\make -f sgdk\makefile.gen
       env:
         GDK_WIN: sgdk
 
