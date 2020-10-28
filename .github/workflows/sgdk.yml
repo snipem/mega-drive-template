@@ -30,7 +30,12 @@ jobs:
       uses: DuckSoft/extract-7z-action@v1.0
       with:
         pathSource: sgdk151.7z
-        pathTarget: .
+        pathTarget: sgdk
+        
+    - name: Run SGDK
+      run: %GDK_WIN%\bin\make -f %GDK_WIN%\makefile.gen
+      env:
+        GDK_WIN: sgdk
 
     - name: Upload the Rom
       uses: actions/upload-artifact@v2.2.0
