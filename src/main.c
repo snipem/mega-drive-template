@@ -3,7 +3,7 @@
 int main()
 {
 
-    VDP_drawText("Hello Mega Drive Matthias!", 8, 12);
+    VDP_drawText("Matthias Mega Drive Template!", 8, 12);
     while(1)
     {
         VDP_waitVSync();
