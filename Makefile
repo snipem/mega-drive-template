@@ -8,5 +8,5 @@ opt:
 
 sgdk:
 	C:\msys64\usr\bin\wget.exe https://github.com/Stephane-D/SGDK/releases/download/v1.51/sgdk151.7z
-	C:\msys64\usr\bin\7a a sgdk151.7z
+	C:\msys64\usr\bin\7z a sgdk151.7z
 
