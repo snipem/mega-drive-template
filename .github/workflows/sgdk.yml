@@ -18,11 +18,19 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Dependencies
-      run: make sgdk
+    - name: Download Assets
+      uses: i3h/download-release-asset@v1.2.0
+      with:
+        owner: Stephane-D
+        repo: SGDK
+        tag: v1.51
+        file: sgdk151.7z
 
-    - name: Build
-      run: make build
+    - name: extract-7z-action
+      uses: DuckSoft/extract-7z-action@v1.0
+      with:
+        pathSource: sgdk151.7z
+        pathTarget: .
 
     - name: Upload the Rom
       uses: actions/upload-artifact@v2.2.0
