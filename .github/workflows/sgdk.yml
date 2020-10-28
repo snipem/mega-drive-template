@@ -1,0 +1,33 @@
+name: Build with SGDK
+
+on:
+  pull_request:
+  push:
+    branches:
+      - sgdk
+      - main
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        platform: [windows]
+    runs-on: ${{ matrix.platform }}
+    steps:
+
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Dependencies
+      run: make sgdk
+
+    - name: Build
+      run: make build
+
+    - name: Upload the Rom
+      uses: actions/upload-artifact@v2.2.0
+      with:
+        name: rom.bin
+        path: out/rom.bin
+        if-no-files-found: error
+
